@@ -1,10 +1,15 @@
 <?php
     if (isset($_POST["name"])){
-        $name = $_POST['name'];
-        $content = $_POST['comment'];
-        $handle = fopen("comments.html", "a");
-        fwrite($handle, "<br>" . $name . "  : " . $content);
-        fclose($handle);
+        if ($_POST["name"] != null && $_POST["comment"] != null){
+            $name = $_POST['name'];
+            $content = $_POST['comment'];
+            $handle = fopen("comments.html", "a");
+            fwrite($handle, "<br>" . $name . "  : " . $content);
+            fclose($handle);
+        }
+        else {
+            echo ("<script> alert('Both fields have to be filled')</script>");
+        }
     }
 ?>
   
